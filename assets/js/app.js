@@ -151,10 +151,9 @@ function getCaloriesConsumed(){
         },
         data: data,
         success: function(data) {
-            if(data.total>0)
-             $("#total_calories").text(data.total+' calories consumed in period');
-            else
-                $("#total_calories").text('No calories consumed in period');
+
+            displayCalories($("#total_calories"),data.total,' calories consumed in period','No calories consumed in period')
+
         },
         dataType: "json"
     });
@@ -162,10 +161,62 @@ function getCaloriesConsumed(){
 
 }
 
+function setExpectedDailyCalories(){
+
+    var cal_data = {
+        "daily_cal" : $("#daily_cal").val()
+    };
+    if(cal_data.daily_cal===''){
+
+        alert('Field requires value');
+        return;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: "index.php?section=users&do=setCalories",
+        error: function(data){
+            console.log(data)
+        },
+        data: cal_data,
+        success: function(data) {
+
+            if(data.success)
+                alert('Daily calories updated successfully!');
+
+            var data_value = parseInt(cal_data.daily_cal);
+
+            displayCalories($("#current_daily_calories"),data_value,'calories','No daily calories have been set')
+
+        },
+        dataType: "json"
+    });
+
+}
+
+function displayCalories(div,data_value,success_text,failure_text){
+
+    if(data_value>0){
+
+        $(div)
+            .text(data_value + success_text )
+            .addClass("alert alert-dismissible alert-success");
+
+    } else{
+
+        $(div)
+            .text(failure_text)
+            .addClass("alert alert-dismissible alert-danger");
+    }
+}
+
+
 
 $( document ).ready(function() {
 
     getCalories();
+    var data_value = parseInt($("#current_daily_calories").text());
+    displayCalories($("#current_daily_calories"),data_value,' calories','Not Set');
 
     $("#dashboard").show();
 
@@ -215,7 +266,10 @@ $( document ).ready(function() {
 
     $("#filter-button").click(function(){
         getCaloriesConsumed();
+    });
 
+    $("#daily-cal-button").click(function(){
+        setExpectedDailyCalories();
     });
 
 

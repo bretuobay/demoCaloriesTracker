@@ -43,7 +43,13 @@ class UsersController extends Controller {
         ]);
     }
 
+    public function setCalories(){
 
+        $daily_cal = $_POST['daily_cal'];
+
+        $this->useModel('Users')->setCalories($daily_cal);
+
+    }
 
 
 

@@ -66,7 +66,7 @@ class Users extends DemoAppModel\Model{
         $sql = "SELECT * FROM users WHERE UPPER(email) LIKE :query ORDER BY email";
 
             $stmt = $this->dbh->prepare($sql);
-            $query = "%".$email_query."%";
+            $query = "%".$email_query."%"; // TODO: Clean up to  remove like, be exact
             $stmt->bindParam("query", $query);
             $stmt->execute();
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]; // TODO : Clean up
@@ -77,6 +77,7 @@ class Users extends DemoAppModel\Model{
             if($users['password'] === $pass_as_hash && $users['email'] === $email){
 
                 $_SESSION['curr_user']= $users['email'];
+                $_SESSION['daily_cal'] = $users['daily_cal'];
                 $_SESSION['logged_in']= true;
 
                 echo json_encode($this->retSuccess());
@@ -92,6 +93,28 @@ class Users extends DemoAppModel\Model{
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
 
+    }
+
+    public function setCalories($daily_cal)
+    {
+        $curr_user = $_SESSION['curr_user'];
+        // if reset, set new
+        $_SESSION['daily_cal'] = $daily_cal;
+
+        $sql = "UPDATE users SET daily_cal=:daily_cal WHERE email=:email";
+        try {
+
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam("daily_cal", $daily_cal);
+            $stmt->bindParam("email", $curr_user);
+            $stmt->execute();
+            $this->dbh = null;
+
+            echo json_encode($this->retSuccess());
+
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
     }
 
 

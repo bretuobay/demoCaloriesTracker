@@ -33,8 +33,6 @@ function registerUser(){
 
     }
 
-
-
 }
 
 function loginUser() {

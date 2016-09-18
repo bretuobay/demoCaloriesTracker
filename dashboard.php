@@ -23,7 +23,7 @@
                 <li><a class="navbar-right" href="#">
                     <?php
                     session_start();
-                    echo "Welcome :". $_SESSION['curr_user'];
+                    echo "Welcome : ". $_SESSION['curr_user'];
                     ?>
                     </a></li>
             </ul>";
@@ -45,9 +45,9 @@
     <div class="row">
 
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#dashboard" id="dashboard-page" data-toggle="tab">Dashboard</a></li>
+            <li class="active"><a href="#dashboard" id="dashboard-page" data-toggle="tab">Settings</a></li>
             <li><a href="#manage" id="management-page" data-toggle="tab">Manage Calorie Entries</a></li>
-            <li><a href="#setting" id="setting-page" data-toggle="tab">Set Calories</a></li>
+            <li><a href="#setting" id="setting-page" data-toggle="tab">Check Calories</a></li>
         </ul>
     </div>
 
@@ -59,7 +59,19 @@
 
             <div id="dashboard">
 
-                <h1>Awesome Dashboard</h1>
+                <div class="form-group">
+
+                    <h2>Your current expected calories per day : <span id="current_daily_calories">  <?php echo $_SESSION['daily_cal']; ?>  </span> </h2>
+
+                    <div class="form-group">
+                        <label for="daily_cal">Set New Expected  Daily Calories</label>
+                        <input type="text"  class="form-control" id="daily_cal" aria-describedby="dailyHelp" placeholder="450">
+                        <small id="dailyHelp" class="form-text text-muted"></small>
+                    </div>
+
+                    <button type="submit" id="daily-cal-button" class="btn btn-default pull-right">Save</button>
+
+                </div>
 
             </div>
 
@@ -102,7 +114,7 @@
 
 
                     <label for="id">ID</label>
-                    <input type="email"  class="form-control" id="id" aria-describedby="idHelp" placeholder="">
+                    <input type="email" disabled class="form-control" id="id" aria-describedby="idHelp" placeholder="">
                     <small id="idHelp" class="form-text text-muted"></small>
                 </div>
 
@@ -160,14 +172,6 @@
                             <input type="password"  class="form-control" id="password" aria-describedby="passwordHelp" placeholder="xxxxxxxxxx">
                             <small id="passwordHelp" class="form-text text-muted">Enter a secure pass word at least 8 characters long.</small>
                         </div>
-
-                        <!-- <div class="form-group">
-                             <label for="confirm-password">Confirm Password</label>
-                             <input type="password" class="form-control" id="confirm-password" aria-describedby="confirmPasswordHelp" placeholder="xxxxxxxxxx">
-                             <small id="confirmPasswordHelp" class="form-text text-muted">Enter password again</small>
-                         </div>
-
-                         -->
 
                         <button type="submit" id="register-button" class="btn btn-default pull-right">Register</button>
                     </form>

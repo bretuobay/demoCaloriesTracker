@@ -12,11 +12,12 @@ require_once PATH_BASE.DS.CONTROLLERS.DS.'Controller.php';
 if (isset($_SESSION['curr_user']) && isset($_SESSION['logged_in'])) {
 
     if (isset($_GET['section'])) {
-        // Pull the routing path
+
+        //header('location:dashboard.php');
+        // cannot do double redirect , if session is set let the code handle it
 
     } else {
-
-        header("location: index.php?section=index");
+        header('location:front_app.php');
         exit;
     }
 }
