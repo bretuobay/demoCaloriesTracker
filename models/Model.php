@@ -11,7 +11,7 @@ class Model extends \PDO {
 
     public function __construct(){
 
-        $this->dbh = new PDO('mysql:host=localhost;dbname=kalories', DBUSER, DBPASS);
+        $this->dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS);
     }
 
     /**

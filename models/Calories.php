@@ -22,6 +22,7 @@ class Calories extends \DemoAppModel\Model {
 /*
     public function  __construct($id,$date,$time,$num_calories,$user_id,$description,$calories_array)
     {
+        //   FIXME : better in a truly OOP way?
        $this->id = $id;
        $this->date = $date;
        $this->time = $time;
@@ -30,7 +31,7 @@ class Calories extends \DemoAppModel\Model {
        $this->user_id = $user_id;
     }
 */
-    public function testFunction(){
+    private function testFunction(){
 
         foreach($this->dbh->query('SELECT * from calories') as $row) {
             print("<hr/>");

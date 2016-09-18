@@ -3,6 +3,8 @@
 
 class UsersController extends Controller {
 
+   use Utility;
+
     public function test(){
 
         $this->useModel('Users')->index();
@@ -17,7 +19,8 @@ class UsersController extends Controller {
 
     public function register()
     {
-        $data = $_POST;
+
+        $data = $_POST; // FIXME : To be cleaned
 
         $this->useModel('Users')->register($data);
 
@@ -25,14 +28,14 @@ class UsersController extends Controller {
 
     public function login()
     {
-        $data = $_POST;
+        $data = $_POST; // // FIXME : To be cleaned
 
         $this->useModel('Users')->login($data);
     }
 
     public function logout()
     {
-        $data = $_POST;
+        $data = $_POST; // // FIXME : To be cleaned
 
         $this->useModel('Users')->logout($data);
 
@@ -45,7 +48,7 @@ class UsersController extends Controller {
 
     public function setCalories(){
 
-        $daily_cal = $_POST['daily_cal'];
+        $daily_cal = $_POST['daily_cal']; // // FIXME : To be cleaned
 
         $this->useModel('Users')->setCalories($daily_cal);
 

@@ -3,6 +3,7 @@
 
 class CaloriesController extends Controller {
 
+    use Utility;
 
     public function home()
     {
@@ -56,20 +57,6 @@ class CaloriesController extends Controller {
 
     }
 
-    /**
-     * @param $date_to_convert
-     * @return string
-     * 2016-09-16
-     */
-    private function convertDateUtil($date_to_convert)
-    {
-
-        $date = explode('/', $date_to_convert);
-
-        return  $date[2].'-'.$date[1].'-'.$date[0];
-
-    }
-
 
 
     /**
@@ -79,7 +66,7 @@ class CaloriesController extends Controller {
     {
         $params = [
             'id' => $_POST['id'],
-            'date' => $_POST['date'],
+            'date' => $this->convertDateUtil($_POST['date']),
             'time' => $_POST['time'],
             'description' => $_POST['description'],
             'num_calories' => $_POST['num_calories'],

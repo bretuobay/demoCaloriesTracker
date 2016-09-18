@@ -8,13 +8,15 @@ require_once PATH_BASE.DS.MODELS.DS.'Model.php';
 
 require_once PATH_BASE.DS.CONTROLLERS.DS.'Controller.php';
 
+require_once PATH_BASE.DS.HELPERS.DS.'utilities.php';
+
 
 if (isset($_SESSION['curr_user']) && isset($_SESSION['logged_in'])) {
 
     if (isset($_GET['section'])) {
 
         //header('location:dashboard.php');
-        // cannot do double redirect , if session is set let the code handle it
+        //FIXME cannot do double redirect , if session is set let the code handle it
 
     } else {
         header('location:front_app.php');

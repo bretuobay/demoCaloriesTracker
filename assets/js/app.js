@@ -215,8 +215,15 @@ function displayCalories(div,data_value,success_text,failure_text){
 $( document ).ready(function() {
 
     getCalories();
+
     var data_value = parseInt($("#current_daily_calories").text());
+
     displayCalories($("#current_daily_calories"),data_value,' calories','Not Set');
+
+    $(".dash-menu li a").click(function() {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+
+    });
 
     $("#dashboard").show();
 

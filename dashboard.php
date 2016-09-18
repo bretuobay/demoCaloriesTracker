@@ -44,7 +44,7 @@
 
     <div class="row">
 
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs dash-menu">
             <li class="active"><a href="#dashboard" id="dashboard-page" data-toggle="tab">Settings</a></li>
             <li><a href="#manage" id="management-page" data-toggle="tab">Manage Calorie Entries</a></li>
             <li><a href="#setting" id="setting-page" data-toggle="tab">Check Calories</a></li>
@@ -104,6 +104,8 @@
 
                 <div class="form-group">
 
+                        <h3> Select Calorie entry :</h3>
+
                     <section class="container select-area" >
                         <select id="calorieslist" class="selectpicker">
                             <option value="default">----</option>
@@ -146,10 +148,6 @@
 
 
             </div>
-
-
-
-
         </div>
 
         <div class="col-sm-4">
@@ -180,8 +178,6 @@
             </div>
 
 
-
-
             <div id="login">
                 <div class="wrapper">
 
@@ -203,23 +199,9 @@
                     </form>
                 </div>
             </div>
-
-
-
-
         </div>
-
-
-
-
-
-
     </div>
-
 </div>
-
-
-
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src = "assets/js/app.js"></script>
