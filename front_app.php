@@ -37,6 +37,7 @@
     <div class="row">
 
         <div  class="col-sm-8">
+            <h1>Calories Tracker</h1>
 
             <div id="font-pic">
             <img  alt="Calories Counter" src="assets/images/calories/food1.jpeg">

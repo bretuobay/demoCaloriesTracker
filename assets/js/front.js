@@ -26,6 +26,9 @@ function registerUser(){
                 if(data.success){
                     $("#register").hide();
                     $("#login").show();
+                }else{
+
+                    alert('Registration failed!')
                 }
             },
             dataType: "json"

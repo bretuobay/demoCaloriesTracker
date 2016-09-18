@@ -41,10 +41,13 @@ class Users extends DemoAppModel\Model{
             $stmt->bindParam("id", $id);
             $stmt->bindParam("email", $email);
             $stmt->bindParam("password", $pass_as_hash);
-            $stmt->execute();
+            $ret=$stmt->execute();
             $this->dbh = null;
+                if($ret)
+                   echo json_encode(array_merge($this->retSuccess(),['res'=>$ret]));
+              else
+                  echo json_encode($this->retFailure());
 
-            echo json_encode($this->retSuccess());
 
         } catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
