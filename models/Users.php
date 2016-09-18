@@ -1,7 +1,7 @@
 <?php
 
 
-class Users extends CaloriesModel\Model{
+class Users extends DemoAppModel\Model{
 
     public $id;
     public $email;

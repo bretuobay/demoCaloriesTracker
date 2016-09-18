@@ -132,16 +132,67 @@ function deleteCaloriesEntry(){
 
 }
 
+function getCaloriesConsumed(){
+
+     var data = {
+         "end" : $("#end").val(),
+         "begin" : $("#begin").val()
+     };
+     if(data.end==='' || data.begin===''){
+         alert('Must fill all fields');
+         return;
+     }
+
+    $.ajax({
+        type: 'POST',
+        url: "index.php?section=calories&do=filter",
+        error: function(data){
+            console.log(data)
+        },
+        data: data,
+        success: function(data) {
+            if(data.total>0)
+             $("#total_calories").text(data.total+' calories consumed in period');
+            else
+                $("#total_calories").text('No calories consumed in period');
+        },
+        dataType: "json"
+    });
+
+
+}
+
 
 $( document ).ready(function() {
 
     getCalories();
 
+    $("#dashboard").show();
+
+    $("#dashboard-page").click(function(){
+        $("#manage").hide();
+        $("#setting").hide();
+        $("#dashboard").show();
+
+    });
+
+    $("#management-page").click(function(){
+        $("#manage").show();
+        $("#setting").hide();
+        $("#dashboard").hide();
+
+    });
+
+    $("#setting-page").click(function(){
+        $("#manage").hide();
+        $("#setting").show();
+        $("#dashboard").hide();
+
+    });
+
 
     $("#logout_link").click(function(){
-
         logOutUser();
-
     });
 
 
@@ -159,6 +210,11 @@ $( document ).ready(function() {
 
     $("#delete-entry").click(function(){
         deleteCaloriesEntry();
+
+    });
+
+    $("#filter-button").click(function(){
+        getCaloriesConsumed();
 
     });
 

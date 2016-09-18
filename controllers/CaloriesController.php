@@ -24,9 +24,9 @@ class CaloriesController extends Controller {
 
     public function filter()
     {
-        $begin = $_POST['begin'];
+        $begin =   $this->convertDateUtil($_POST['begin']);
 
-        $end = $_POST['end'];
+        $end   =   $this->convertDateUtil($_POST['end']);
 
         $this->useModel('Calories')->filter($begin,$end);
     }
@@ -55,6 +55,22 @@ class CaloriesController extends Controller {
         $this->useModel('Calories')->delete($id);
 
     }
+
+    /**
+     * @param $date_to_convert
+     * @return string
+     * 2016-09-16
+     */
+    private function convertDateUtil($date_to_convert)
+    {
+
+        $date = explode('/', $date_to_convert);
+
+        return  $date[2].'-'.$date[1].'-'.$date[0];
+
+    }
+
+
 
     /**
      * @return array

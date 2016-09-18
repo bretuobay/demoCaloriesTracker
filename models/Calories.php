@@ -1,7 +1,7 @@
 <?php
 
 
-class Calories extends \CaloriesModel\Model {
+class Calories extends \DemoAppModel\Model {
 
     /**
      * An entry has the following fields:
@@ -114,8 +114,6 @@ class Calories extends \CaloriesModel\Model {
     }
 
     public function filter($begin,$end){
-
-        session_start();
 
         $sql = "SELECT SUM(num_calories) AS total
         FROM calories

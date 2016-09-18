@@ -44,21 +44,63 @@
 
     <div class="row">
 
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#dashboard" id="dashboard-page" data-toggle="tab">Dashboard</a></li>
+            <li><a href="#manage" id="management-page" data-toggle="tab">Manage Calorie Entries</a></li>
+            <li><a href="#setting" id="setting-page" data-toggle="tab">Set Calories</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="row">
+
         <div class="col-sm-8">
 
             <div id="dashboard">
 
                 <h1>Awesome Dashboard</h1>
 
-                <section class="container select-area" >
-                    <select id="calorieslist" class="selectpicker">
-                        <option value="default">----</option>
-                    </select>
-                    <input type="submit"  class="btn btn-default pull-right" id="delete-entry" value="Delete" >
-                    <input type="submit"  class="btn btn-default pull-right" id="fill-form" value="Edit" >
-                </section>
+            </div>
+
+            <div id="setting">
+                <div class="form-group">
+
+                <h1>Filter to find calories consumed in period : </h1>
 
                 <div class="form-group">
+                    <label for="begin">Begin</label>
+                    <input type="date"  class="form-control" id="begin" aria-describedby="beginHelp" placeholder="18/09/2016">
+                    <small id="beginHelp" class="form-text text-muted"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="end">Begin</label>
+                    <input type="date"  class="form-control" id="end" aria-describedby="endHelp" placeholder="19/09/2016">
+                    <small id="endHelp" class="form-text text-muted"></small>
+                </div>
+
+                    <h2> Totale Calories in period :: <span class="badge" id="total_calories"></span></h2>
+
+                <button type="submit" id="filter-button" class="btn btn-default pull-right">Filter</button>
+
+
+            </div>
+            </div>
+
+            <div id="manage">
+
+                <div class="form-group">
+
+                    <section class="container select-area" >
+                        <select id="calorieslist" class="selectpicker">
+                            <option value="default">----</option>
+                        </select>
+                        <input type="submit"  class="btn btn-default pull-right" id="delete-entry" value="Delete" >
+                        <input type="submit"  class="btn btn-default pull-right" id="fill-form" value="Edit" >
+                    </section>
+
+
                     <label for="id">ID</label>
                     <input type="email"  class="form-control" id="id" aria-describedby="idHelp" placeholder="">
                     <small id="idHelp" class="form-text text-muted"></small>
@@ -78,7 +120,7 @@
 
                 <div class="form-group">
                     <label for="date">Date</label>
-                    <input type="date"  class="form-control" id="date" aria-describedby="dateHelp" placeholder="Enter date">
+                    <input type="date"  class="form-control" id="date" aria-describedby="dateHelp" placeholder="18/09/2016">
                     <small id="dateHelp" class="form-text text-muted"></small>
                 </div>
 

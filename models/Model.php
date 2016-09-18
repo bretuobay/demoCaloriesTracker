@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matei
- * Date: 16/09/2016
- * Time: 21.41
- */
 
-namespace CaloriesModel;
+namespace DemoAppModel;
 use PDO;
 
 class Model extends \PDO {
@@ -20,6 +14,12 @@ class Model extends \PDO {
         $this->dbh = new PDO('mysql:host=localhost;dbname=kalories', DBUSER, DBPASS);
     }
 
+    /**
+     * @param $table
+     * Modified to grab on data of the current user
+     *  This has lost its intended purpose, but can be used on both tables
+     *
+     */
     public function index($table)
     {
 
@@ -40,8 +40,13 @@ class Model extends \PDO {
 
     }
 
-    public function findById($id,$table){
-
+    /**
+     * @param $id
+     * @param $table
+     * No need to use user as primary is id
+     */
+    public function findById($id,$table)
+    {
 
         $sql="SELECT * FROM $table WHERE id = :id";
 
@@ -55,7 +60,10 @@ class Model extends \PDO {
 
  }
 
-
+    /**
+     * @return array
+     * generic return array for json on success
+     */
     public function retSuccess()
     {
 
@@ -66,6 +74,10 @@ class Model extends \PDO {
         ];
     }
 
+    /**
+     * @return array
+     * generic return array for failure
+     */
     public function retFailure()
     {
 
