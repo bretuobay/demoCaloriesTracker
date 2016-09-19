@@ -3,7 +3,9 @@
 This is a demo app for tracking calories
 
 ## Installation
-
+```
+   git clone https://github.com/bretuobay/demoCaloriesTracker.git
+```
 Create mysql database : demoapp and import the sql file in sql folder and import it.
 
 ## Motivation
