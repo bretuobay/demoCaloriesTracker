@@ -10,7 +10,7 @@ class Model extends \PDO {
     public $json_success;
 
     public function __construct(){
-
+        //TODO : make config string DB name configurable, ensure only on instance of connection etc
         $this->dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS);
     }
 
@@ -88,4 +88,4 @@ class Model extends \PDO {
         ];
     }
 
-} 
+}
