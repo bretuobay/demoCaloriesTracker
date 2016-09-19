@@ -172,7 +172,7 @@ function setExpectedDailyCalories(){
         return;
     }
 
-    $.ajax({
+    $.when($.ajax({
         type: 'POST',
         url: "index.php?section=users&do=setCalories",
         error: function(data){
@@ -180,17 +180,20 @@ function setExpectedDailyCalories(){
         },
         data: cal_data,
         success: function(data) {
-
-            if(data.success)
-                alert('Daily calories updated successfully!');
-
-            var data_value = parseInt(cal_data.daily_cal);
-
-            displayCalories($("#current_daily_calories"),data_value,'calories','No daily calories have been set')
-
         },
         dataType: "json"
-    });
+    })).then(function(data, textStatus, jqXHR) {
+
+      if(data.success)
+          alert('Daily calories updated successfully!');
+
+      var data_value = parseInt(cal_data.daily_cal);
+
+      $("#current_daily_calories").removeClass(); // remove any class and reset
+      displayCalories($("#current_daily_calories"),data_value,'calories','Not set')
+
+    }
+  );
 
 }
 
@@ -281,7 +284,3 @@ $( document ).ready(function() {
 
 
 });
-
-
-
-
