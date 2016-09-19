@@ -8,6 +8,8 @@ This is a demo app for tracking calories
 ```
 Create mysql database : demoapp and import the sql file in sql folder and import it.
 
+login with user/Email : demo , password : pass
+
 ## Motivation
 
 This is a demo app for an interview. Uses basic OOP - MVC pattern, Specification not so clear. For studies purpose only.
