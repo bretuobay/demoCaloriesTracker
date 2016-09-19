@@ -5,7 +5,7 @@
     <link rel="icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <title>::Calories Count ::</title>
+    <title>::Kalories::</title>
 
 </head>
 <body>
@@ -37,7 +37,7 @@
     <div class="row">
 
         <div  class="col-sm-8">
-            <h1>Calories Tracker</h1>
+            <h1>Kalories Tracker</h1>
 
             <div id="font-pic">
             <img  alt="Calories Counter" src="assets/images/calories/food1.jpeg">

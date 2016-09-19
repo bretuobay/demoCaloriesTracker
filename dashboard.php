@@ -5,7 +5,7 @@
     <link rel="icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <title>::Calories Count ::</title>
+    <title>::Kalories ::</title>
 
 </head>
 <body>
