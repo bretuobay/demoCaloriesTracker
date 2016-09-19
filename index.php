@@ -44,7 +44,8 @@ $controllerName = explode('.',$controller)[0];
 
 // Check for the file
 if(file_exists(PATH_BASE.DS.CONTROLLERS.DS.$controller)) {
-    include  PATH_BASE.DS.MODELS.DS.$model;
+    // models any of the models can be loaded later for use, no need loading them here
+    //include  PATH_BASE.DS.MODELS.DS.$model;
     include  PATH_BASE.DS.CONTROLLERS.DS.$controller;
 } else {
     return false;
