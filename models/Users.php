@@ -9,6 +9,8 @@ class Users extends DemoAppModel\Model{
 
     public function index(){
 
+        $this->dbh = self::dbInstance();
+
         $sql = "SELECT * FROM users";
 
         try {
@@ -30,6 +32,8 @@ class Users extends DemoAppModel\Model{
     {
 
         extract($params_array);
+
+          $this->dbh = self::dbInstance();
 
         $pass_as_hash =  hash('sha256', $password, false);
 
@@ -57,6 +61,8 @@ class Users extends DemoAppModel\Model{
 
     public function login($params_array)
     {
+
+        $this->dbh = self::dbInstance();
 
         extract($params_array);
 
@@ -100,6 +106,9 @@ class Users extends DemoAppModel\Model{
 
     public function setCalories($daily_cal)
     {
+
+        $this->dbh = self::dbInstance();
+
         $curr_user = $_SESSION['curr_user'];
         // if reset, set new
         $_SESSION['daily_cal'] = $daily_cal;
@@ -135,4 +144,4 @@ class Users extends DemoAppModel\Model{
 
 
 
-} 
+}

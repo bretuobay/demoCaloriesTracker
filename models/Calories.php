@@ -33,6 +33,8 @@ class Calories extends \DemoAppModel\Model {
 */
     private function testFunction(){
 
+        $this->dbh = \DemoAppModel\Model::dbInstance();
+
         foreach($this->dbh->query('SELECT * from calories') as $row) {
             print("<hr/>");
             echo json_encode($row, JSON_PRETTY_PRINT);
@@ -44,6 +46,9 @@ class Calories extends \DemoAppModel\Model {
     public function save($params_array)
     {
         extract($params_array);
+
+          $this->dbh = self::dbInstance();
+
         // FIXME name of date and time should be changed, as they are types in mysql
         $sql = "INSERT INTO calories (id, date, time,description, num_calories,curr_user) VALUES (:id, :date, :time,:description,:num_calories,:curr_user)";
 
@@ -71,6 +76,8 @@ class Calories extends \DemoAppModel\Model {
     public function delete($id)
     {
 
+        $this->dbh = self::dbInstance();
+
         $sql = "DELETE FROM calories WHERE id=:id";
         try {
 
@@ -88,7 +95,10 @@ class Calories extends \DemoAppModel\Model {
 
     }
 
-    public function edit($params_array){
+    public function edit($params_array)
+    {
+
+        $this->dbh = self::dbInstance();
 
         extract($params_array);
 
@@ -114,7 +124,10 @@ class Calories extends \DemoAppModel\Model {
 
     }
 
-    public function filter($begin,$end){
+    public function filter($begin,$end)
+    {
+
+        $this->dbh = self::dbInstance();
 
         $sql = "SELECT SUM(num_calories) AS total
         FROM calories

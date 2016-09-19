@@ -3,17 +3,40 @@
 namespace DemoAppModel;
 use PDO;
 
-class Model extends \PDO {
+class Model{
 
-    protected   $dbh;
+    private static  $dbh=NULL;
     public $json_err;
     public $json_success;
 
+    // TODO supposed to be private in reality
+   public function __construct()
+   {
+
+   }
+
+   private function __clone() {
+
+
+   }
+
+   public static function dbInstance() {
+
+     if (!isset(self::$dbh)) {
+
+       $options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+
+       self::$dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS, $options);
+
+     }
+     return self::$dbh;
+   }
+/*
     public function __construct(){
         //TODO : make config string DB name configurable, ensure only on instance of connection etc
         $this->dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS);
     }
-
+*/
     /**
      * @param $table
      * Modified to grab on data of the current user
@@ -22,6 +45,8 @@ class Model extends \PDO {
      */
     public function index($table)
     {
+
+        $this->dbh = self::dbInstance();
 
         $sql = "SELECT * FROM $table WHERE curr_user=:curr_user";
 
@@ -47,6 +72,8 @@ class Model extends \PDO {
      */
     public function findById($id,$table)
     {
+
+        $this->dbh = self::dbInstance();
 
         $sql="SELECT * FROM $table WHERE id = :id";
 

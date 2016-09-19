@@ -78,7 +78,6 @@ INSERT INTO `users` (`id`, `email`, `daily_cal`, `password`) VALUES
 (9, 'email@email.com', 0, '82244417f956ac7c599f191593f7e441a4fafa20a4158fd52e154f1dc4c8ed92'),
 (15, 'hack@hack.com', 0, 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1'),
 (16, 'eunice@hot.com', 0, 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1'),
-(17, 'eunice@baidoo.com', 0, 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1'),
 (18, 'eunice@baidoo.com', 0, 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1');
 
 --
@@ -95,7 +94,7 @@ ALTER TABLE `calories`
 -- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`id`,`email`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate

@@ -151,7 +151,7 @@ function getCaloriesConsumed(){
         },
         data: data,
         success: function(data) {
-
+            $("#total_calories").removeClass();
             displayCalories($("#total_calories"),data.total,' calories consumed in period','No calories consumed in period')
 
         },
