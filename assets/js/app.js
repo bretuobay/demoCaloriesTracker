@@ -190,7 +190,7 @@ function setExpectedDailyCalories(){
       var data_value = parseInt(cal_data.daily_cal);
 
       $("#current_daily_calories").removeClass(); // remove any class and reset
-      displayCalories($("#current_daily_calories"),data_value,'calories','Not set')
+      displayCalories($("#current_daily_calories"),data_value,'calories',' Not set')
 
     }
   );
