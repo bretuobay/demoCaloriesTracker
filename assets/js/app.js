@@ -29,9 +29,11 @@ function saveCaloriesEntry(){
         "time" : $("#time").val()
     };
 
-    var url = (data.id==='')? "index.php?section=calories&do=save" : "index.php?section=calories&do=edit";
+    console.log(typeof data.id);
 
-    if(data.description==='' || data.num_calories===''){
+    var url = (!data.id)? "index.php?section=calories&do=save" : "index.php?section=calories&do=edit";
+
+    if(data.description===' ' || data.num_calories===' '){
         alert('Description and number of calories cannot be null');
         return;
     }
