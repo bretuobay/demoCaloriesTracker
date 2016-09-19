@@ -44,7 +44,7 @@ class Calories extends \DemoAppModel\Model {
     public function save($params_array)
     {
         extract($params_array);
-
+        // FIXME name of date and time should be changed, as they are types in mysql
         $sql = "INSERT INTO calories (id, date, time,description, num_calories,curr_user) VALUES (:id, :date, :time,:description,:num_calories,:curr_user)";
 
         try {
@@ -140,4 +140,3 @@ class Calories extends \DemoAppModel\Model {
 
 
 }
-
