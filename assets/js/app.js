@@ -33,7 +33,7 @@ function saveCaloriesEntry(){
 
     var url = (!data.id)? "index.php?section=calories&do=save" : "index.php?section=calories&do=edit";
 
-    if(data.description===' ' || data.num_calories===' '){
+    if(!data.description || !data.num_calories){
         alert('Description and number of calories cannot be null');
         return;
     }
@@ -140,7 +140,7 @@ function getCaloriesConsumed(){
          "end" : $("#end").val(),
          "begin" : $("#begin").val()
      };
-     if(data.end==='' || data.begin===''){
+     if(!data.end || !data.begin){
          alert('Must fill all fields');
          return;
      }
@@ -168,7 +168,7 @@ function setExpectedDailyCalories(){
     var cal_data = {
         "daily_cal" : $("#daily_cal").val()
     };
-    if(cal_data.daily_cal===''){
+    if(!cal_data.daily_cal){
 
         alert('Field requires value');
         return;

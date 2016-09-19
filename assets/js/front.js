@@ -10,8 +10,9 @@ function registerUser(){
         "confirm_password" : $("#confirm-password").val()
     };
 
-    if(data.email==='' || data.password===''){
+    if(!data.email|| !data.password){
         alert('No empty fields allowed');
+        return;
     }else{
 
         $.ajax({
@@ -45,8 +46,9 @@ function loginUser() {
         "password": $('#lpassword').val()
     };
 
-    if(data.email==='' || data.password===''){
+    if(!data.email || !data.password){
         alert('All fields should be filled');
+        return
     }
 
     $.ajax({
