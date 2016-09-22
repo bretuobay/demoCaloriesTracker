@@ -95,7 +95,7 @@ if(!isset($_SESSION['logged_in'])){
                 </div>
 
                 <div class="form-group">
-                    <label for="end">Begin</label>
+                    <label for="end">End</label>
                     <input type="date"  class="form-control" id="end" aria-describedby="endHelp" placeholder="19/09/2016">
                     <small id="endHelp" class="form-text text-muted"></small>
                 </div>

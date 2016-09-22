@@ -136,24 +136,9 @@ var AppInteractive = (function() {
             })).then(function(data, textStatus, jqXHR) {
 
                 alert("Selected Entry successfully deleted");
-
-<<<<<<< HEAD
-    $.ajax({
-        type: 'POST',
-        url: "index.php?section=calories&do=filter",
-        error: function(data){
-            console.log(data)
-        },
-        data: data,
-        success: function(data) {
-
-            $("#total_calories").removeClass();
-            displayCalories($("#total_calories"),data.total,' calories consumed in period','No calories consumed in period')
-=======
             });
->>>>>>> 89e88282949b4b68186b6eb82c7804a907c14a21
-
         },
+
 
         getCaloriesConsumed: function() {
 
