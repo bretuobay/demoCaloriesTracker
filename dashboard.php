@@ -1,3 +1,11 @@
+<?php
+error_reporting(0);
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header('location:front_app.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
