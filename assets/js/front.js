@@ -1,5 +1,11 @@
 var FrontInteractive = (function() {
 
+
+    var FRONTURLS = {
+        "register" : "index.php?section=users&do=register",
+        "login" : "index.php?section=users&do=login"
+    };
+
     return {
 
 
@@ -19,7 +25,7 @@ var FrontInteractive = (function() {
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    url: "index.php?section=users&do=register",
+                    url: FRONTURLS.register,
                     error: function(data) {
                         console.log(data)
                     },
@@ -56,7 +62,7 @@ var FrontInteractive = (function() {
                 type: 'POST',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 processDataBoolean: false,
-                url: "index.php?section=users&do=login",
+                url: FRONTURLS.login,
                 error: function(data) {
                     console.log(data)
                 },

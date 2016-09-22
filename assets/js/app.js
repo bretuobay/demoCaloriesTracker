@@ -1,5 +1,17 @@
 var AppInteractive = (function() {
 
+ var APPURLS = {
+
+      "logout"    : "index.php?section=users&do=logout",
+      "save"      : "index.php?section=calories&do=save",
+      "edit"      : "index.php?section=calories&do=edit",
+      "index"     : "index.php?section=calories&do=index",
+      "find"      : "index.php?section=calories&do=find",
+      "delete"    : "index.php?section=calories&do=delete",
+      "set_calories" : "index.php?section=users&do=setCalories",
+      "filter"    : "index.php?section=calories&do=filter"
+
+ };
 
     return {
 
@@ -7,7 +19,7 @@ var AppInteractive = (function() {
 
             $.ajax({
                 type: 'POST',
-                url: "index.php?section=users&do=logout",
+                url: APPURLS.logout,
                 error: function(data) {
                     console.log(data)
                 },
@@ -32,7 +44,7 @@ var AppInteractive = (function() {
 
             console.log(typeof data.id);
 
-            var url = (!data.id) ? "index.php?section=calories&do=save" : "index.php?section=calories&do=edit";
+            var url = (!data.id) ? APPURLS.save : APPURLS.edit;
 
             if (!data.description || !data.num_calories) {
                 alert('Description and number of calories cannot be null');
@@ -78,7 +90,7 @@ var AppInteractive = (function() {
 
             $.when($.ajax({
                 type: 'GET',
-                url: 'index.php?section=calories&do=index',
+                url: APPURLS.index,
                 success: function(data) {
                     //console.log(data);
                 },
@@ -102,7 +114,7 @@ var AppInteractive = (function() {
                 data: {
                     id: $('select#calorieslist').val()
                 },
-                url: 'index.php?section=calories&do=find',
+                url: APPURLS.find,
                 success: function(data) {
 
                 },
@@ -127,7 +139,7 @@ var AppInteractive = (function() {
                 data: {
                     id: $('select#calorieslist').val()
                 },
-                url: 'index.php?section=calories&do=delete',
+                url: APPURLS.delete,
                 success: function(data) {
 
                 },
@@ -153,7 +165,7 @@ var AppInteractive = (function() {
 
             $.ajax({
                 type: 'POST',
-                url: "index.php?section=calories&do=filter",
+                url: APPURLS.filter,
                 error: function(data) {
                     console.log(data)
                 },
@@ -182,7 +194,7 @@ var AppInteractive = (function() {
 
             $.when($.ajax({
                 type: 'POST',
-                url: "index.php?section=users&do=setCalories",
+                url: APPURLS.set_calories,
                 error: function(data) {
                     console.log(data)
                 },
