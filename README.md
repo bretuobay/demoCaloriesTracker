@@ -7,8 +7,10 @@ This is a demo app for tracking calories
    git clone https://github.com/bretuobay/demoCaloriesTracker.git
 ```
 Create mysql database : demoapp and import the sql file in sql folder and import it.
-
-login with user/Email : demo , password : pass
+```
+login with user/Email : demo 
+password : pass
+```
 
 ## Motivation
 
