@@ -53,7 +53,7 @@ class CaloriesController extends Controller {
     {
         $id = $_POST['id'];
 
-        $this->useModel('Calories')->delete($id);
+        $this->useModel('Calories')->delete($id,'calories');
 
     }
 
@@ -62,17 +62,13 @@ class CaloriesController extends Controller {
     /**
      * @return array
      */
-    private function paramsArray()
+    public function paramsArray()
     {
-        $params = [
-            'id' => $_POST['id'],
+        $extra_params = [
             'date' => $this->convertDateUtil($_POST['date']),
-            'time' => $_POST['time'],
-            'description' => $_POST['description'],
-            'num_calories' => $_POST['num_calories'],
             'curr_user' => $_SESSION['curr_user']
         ];
-        return $params;
+        return array_merge($extra_params,$this->postParams());
     }
 
 } 

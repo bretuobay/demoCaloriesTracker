@@ -1,6 +1,6 @@
 <?php
 
-class Calories extends \DemoAppModel\Model {
+class Calories extends \Bretuobay\App\Model {
 
     public $id;
     public $date;
@@ -8,11 +8,12 @@ class Calories extends \DemoAppModel\Model {
     public $description;
     public $num_calories;
     public $user_id;
+    public $table_name = 'calories';
 
 
     private function testFunction(){
 
-        $this->dbh = \DemoAppModel\Model::dbInstance();
+        $this->dbh = \Bretuobay\App\Model::dbInstance();
 
         foreach($this->dbh->query('SELECT * from calories') as $row) {
             print("<hr/>");
@@ -51,7 +52,7 @@ class Calories extends \DemoAppModel\Model {
     }
 
 
-    public function delete($id)
+   /* public function delete($id,$table)
     {
 
         $this->dbh = self::dbInstance();
@@ -71,7 +72,7 @@ class Calories extends \DemoAppModel\Model {
         }
 
 
-    }
+    }*/
 
     public function edit($params_array)
     {

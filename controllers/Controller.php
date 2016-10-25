@@ -1,26 +1,42 @@
 <?php
+
 class Controller{
 
-    public function useModel($name){
-
-        $model = ucfirst($name);
-
-        $file = PATH_BASE.DS.MODELS.DS.$name.'.php';
-
-        if(is_file($file) && file_exists($file)){
-
-            require_once $file;
-
-            return new $model;
-
-        }else{
-
-            return new Model();
-        }
-
+    /**
+     * @param $className
+     */
+    private  function __autoload($className)
+    {
+        require_once PATH_BASE.DS.MODELS.DS.$className.'.php';
     }
 
 
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function useModel($name)
+    {
+        $model = ucfirst($name);
+        $this->__autoload($name);
+        return new $model;
+    }
+
+
+
+
+    /**
+     * @return mixed
+     */
+    public function postParams()
+    {
+        foreach($_POST as $key=>$value){
+
+            $params[$key] = $value;
+
+        }
+        return $params;
+    }
 
 
 }

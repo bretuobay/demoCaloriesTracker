@@ -1,13 +1,14 @@
 <?php
 
 
-class Users extends DemoAppModel\Model{
+class Users extends Bretuobay\App\Model{
 
     public $id;
     public $email;
     public $password;
+    public $table_name = 'users';
 
-    public function index(){
+    public function index($table){
 
         $this->dbh = self::dbInstance();
 

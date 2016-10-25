@@ -1,5 +1,5 @@
 <?php
-namespace DemoAppModel;
+namespace Bretuobay\App;
 
 trait ErrorUtilities {
 

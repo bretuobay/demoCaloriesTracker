@@ -1,38 +1,79 @@
 <?php
 
-namespace DemoAppModel;
+namespace Bretuobay\App;
 use PDO;
 
 class Model{
 
-  use ErrorUtilities;
+    use ErrorUtilities;
 
     private static  $dbh=NULL;
     public $json_err;
     public $json_success;
 
-    // TODO supposed to be private in reality
-   public function __construct()
-   {
 
-   }
+    public function __construct()
+    {
 
-   private function __clone() {
+    }
+
+    private function __clone()
+    {
 
 
-   }
+    }
 
-   public static function dbInstance() {
 
-     if (!isset(self::$dbh)) {
+    public static function dbInstance()
+    {
+        if (!isset(self::$dbh)) {
 
-       $options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            $options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 
-       self::$dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS, $options);
+            try{
 
-     }
-     return self::$dbh;
-   }
+                self::$dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS, $options);
+
+            }catch(\PDOException $e){
+
+                echo "Connection error: " . $e->getMessage();
+
+            }
+        }
+        return self::$dbh;
+    }
+
+
+
+
+
+
+    public  function delete($id,$table)
+    {
+        $this->dbh = self::dbInstance();
+
+        $query = "DELETE FROM " . $table . " WHERE id = :id";
+
+        try {
+
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam("id", $id);
+
+            if($stmt->execute()){
+
+                echo json_encode($this->retSuccess());
+
+            }else{
+
+                echo  json_encode($this->retFailure());
+            }
+
+        } catch(\PDOException $e) {
+
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
 
     /**
      * @param $table
@@ -74,15 +115,22 @@ class Model{
 
         $sql="SELECT * FROM $table WHERE id = :id";
 
-        $stmt = $this->dbh->prepare($sql);
+        try {
 
-        $stmt->execute(array(':id'=>$id));
+            $stmt = $this->dbh->prepare($sql);
 
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->execute(array(':id'=>$id));
 
-        echo json_encode(array_merge($this->retSuccess(),['data' =>$data]));
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
- }
+            echo json_encode(array_merge($this->retSuccess(),['data' =>$data]));
+
+        } catch(\PDOException $e) {
+
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+
+    }
 
 
 }
