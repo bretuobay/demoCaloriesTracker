@@ -13,6 +13,8 @@ define('PORT','');
 
 define('ENVIRONMENT','development');
 
+define('APP','app');
+
 define('CONTROLLERS','controllers');
 
 define('MODELS','models');

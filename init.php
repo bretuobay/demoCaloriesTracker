@@ -6,9 +6,9 @@ define( 'PATH_BASE', dirname(__FILE__) );
 
 require_once PATH_BASE.DS.HELPERS.DS.'error_util.php';
 
-require_once PATH_BASE.DS.MODELS.DS.'Model.php';
+require_once PATH_BASE.DS.APP.DS.'Model.php';
 
-require_once PATH_BASE.DS.CONTROLLERS.DS.'Controller.php';
+require_once PATH_BASE.DS.APP.DS.'Controller.php';
 
 require_once PATH_BASE.DS.HELPERS.DS.'utilities.php';
 

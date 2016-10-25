@@ -58,7 +58,6 @@ class CaloriesController extends Controller {
     }
 
 
-
     /**
      * @return array
      */
@@ -71,4 +70,4 @@ class CaloriesController extends Controller {
         return array_merge($extra_params,$this->postParams());
     }
 
-} 
+}
