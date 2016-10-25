@@ -1,15 +1,6 @@
 <?php
 
-
 class Calories extends \DemoAppModel\Model {
-
-    /**
-     * An entry has the following fields:
-    - date
-    - time
-    - text
-    - number of calories
-     */
 
     public $id;
     public $date;
@@ -19,18 +10,6 @@ class Calories extends \DemoAppModel\Model {
     public $user_id;
 
 
-/*
-    public function  __construct($id,$date,$time,$num_calories,$user_id,$description,$calories_array)
-    {
-        //   FIXME : better in a truly OOP way?
-       $this->id = $id;
-       $this->date = $date;
-       $this->time = $time;
-       $this->description = $description;
-       $this->num_calories= $num_calories;
-       $this->user_id = $user_id;
-    }
-*/
     private function testFunction(){
 
         $this->dbh = \DemoAppModel\Model::dbInstance();
@@ -40,7 +19,6 @@ class Calories extends \DemoAppModel\Model {
             echo json_encode($row, JSON_PRETTY_PRINT);
         }
     }
-
 
 
     public function save($params_array)
