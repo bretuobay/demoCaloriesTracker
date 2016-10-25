@@ -52,28 +52,6 @@ class Calories extends \Bretuobay\App\Model {
     }
 
 
-   /* public function delete($id,$table)
-    {
-
-        $this->dbh = self::dbInstance();
-
-        $sql = "DELETE FROM calories WHERE id=:id";
-        try {
-
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindParam("id", $id);
-            $stmt->execute();
-            $this->dbh = null;
-
-            echo json_encode($this->retSuccess());
-
-        } catch(PDOException $e) {
-            echo '{"error":{"text":'. $e->getMessage() .'}}';
-        }
-
-
-    }*/
-
     public function edit($params_array)
     {
 
