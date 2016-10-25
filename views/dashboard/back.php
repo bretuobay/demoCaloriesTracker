@@ -106,13 +106,13 @@
 
 
                     <label for="id">ID</label>
-                    <input type="email" disabled class="form-control" id="id" aria-describedby="idHelp" placeholder="">
+                    <input type="text" disabled class="form-control" id="id" aria-describedby="idHelp" placeholder="">
                     <small id="idHelp" class="form-text text-muted"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="email" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter description">
+                    <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter description">
                     <small id="descriptionHelp" class="form-text text-muted"></small>
                 </div>
 

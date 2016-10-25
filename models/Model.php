@@ -5,6 +5,8 @@ use PDO;
 
 class Model{
 
+  use ErrorUtilities;
+
     private static  $dbh=NULL;
     public $json_err;
     public $json_success;
@@ -31,12 +33,7 @@ class Model{
      }
      return self::$dbh;
    }
-/*
-    public function __construct(){
-        //TODO : make config string DB name configurable, ensure only on instance of connection etc
-        $this->dbh = new PDO('mysql:host=localhost;dbname=demoapp', DBUSER, DBPASS);
-    }
-*/
+
     /**
      * @param $table
      * Modified to grab on data of the current user
@@ -87,32 +84,5 @@ class Model{
 
  }
 
-    /**
-     * @return array
-     * generic return array for json on success
-     */
-    public function retSuccess()
-    {
-
-        return [
-            'code' => 200,
-            'success' => true,
-            'message' => 'Operation was successful'
-        ];
-    }
-
-    /**
-     * @return array
-     * generic return array for failure
-     */
-    public function retFailure()
-    {
-
-        return [
-            'code' => 200,
-            'success' => false,
-            'message' => 'Operation was not successful'
-        ];
-    }
 
 }
