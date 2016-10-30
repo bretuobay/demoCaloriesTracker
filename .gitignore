@@ -3,3 +3,4 @@
 .htaccess
 tests
 vendor
+composer.lock
