@@ -20,7 +20,13 @@ class TinyRouter {
 
         if (!isset($_SERVER['PATH_INFO']) || $_SERVER['PATH_INFO'] == "") {
 
-            return '/calories/index'; //default route
+          if(isset($_SESSION['logged_in'])){
+              header('location:dashboard.php');
+              exit;
+            }else{
+              header('location:front_app.php');
+              exit;
+            }
         }
 
         $uri = $_SERVER['PATH_INFO'];
@@ -144,4 +150,4 @@ class TinyRouter {
     }
 
 
-} 
+}
