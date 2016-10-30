@@ -1,7 +1,7 @@
 <?php
 
 
-class UsersController extends Controller {
+class UsersController extends Bretuobay\App\Controller {
 
    use Utility;
 

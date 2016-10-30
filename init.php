@@ -4,11 +4,12 @@ require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.
 
 define( 'PATH_BASE', dirname(__FILE__) );
 
-require_once PATH_BASE.DS.HELPERS.DS.'error_util.php';
+    require "vendor/autoload.php";
 
-require_once PATH_BASE.DS.APP.DS.'Model.php';
-
-require_once PATH_BASE.DS.APP.DS.'Controller.php';
+    use Bretuobay\App\Model;
+    use Bretuobay\App\Controller;
+    use Bretuobay\App\View;
+    use Bretuobay\App\ErrorUtilities;
 
 require_once PATH_BASE.DS.HELPERS.DS.'utilities.php';
 

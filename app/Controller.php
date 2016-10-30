@@ -1,14 +1,9 @@
 <?php
+namespace Bretuobay\App;
 
 class Controller{
 
-    /**
-     * @param $className
-     */
-    private  function __autoload($className)
-    {
-        require_once PATH_BASE.DS.MODELS.DS.$className.'.php';
-    }
+
 
 
     /**
@@ -18,7 +13,12 @@ class Controller{
     public function useModel($name)
     {
         $model = ucfirst($name);
-        $this->__autoload($name);
+
+        spl_autoload_register(function ($model) {
+
+           require_once PATH_BASE.DS.MODELS.DS.$model.'.php';
+
+        });
         return new $model;
     }
 
