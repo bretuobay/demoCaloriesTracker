@@ -15,7 +15,7 @@
         use Bretuobay\App\ErrorUtilities;
         use Bretuobay\App\FileLoader as FileLoad;
 
-    require_once PATH_BASE.DS.HELPERS.DS.'utilities.php';
+        require_once PATH_BASE.DS.HELPERS.DS.'utilities.php';
 
     if(defined('ENVIRONMENT')) {
         switch (ENVIRONMENT) {
