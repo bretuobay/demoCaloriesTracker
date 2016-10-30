@@ -1,6 +1,5 @@
 <?php
 
-
 class CaloriesController extends Bretuobay\App\Controller {
 
     use Utility;
