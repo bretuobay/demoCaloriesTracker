@@ -135,5 +135,13 @@ class Model{
 
     }
 
+    /*
+    *@model | takes model name of table name and capitalize first letter
+    */
+    public function upCaseModel($model)
+    {
+      return ucfirst($model);
+    }
+
 
 }
