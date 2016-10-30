@@ -2,8 +2,8 @@ var FrontInteractive = (function() {
 
 
     var FRONTURLS = {
-        "register" : "index.php?section=users&do=register",
-        "login" : "index.php?section=users&do=login"
+        "register" : "index.php/users/register",
+        "login" : "index.php/users/login"
     };
 
     return {

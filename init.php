@@ -1,12 +1,13 @@
 <?php
 
-require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php';
+require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'constants.php';
 
 define( 'PATH_BASE', dirname(__FILE__) );
 
     require "vendor/autoload.php";
 
     use Bretuobay\App\Model;
+    use Bretuobay\App\TinyRouter;
     use Bretuobay\App\Controller;
     use Bretuobay\App\View;
     use Bretuobay\App\ErrorUtilities;

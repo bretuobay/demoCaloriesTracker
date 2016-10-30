@@ -2,14 +2,14 @@ var AppInteractive = (function() {
 
  var APPURLS = {
 
-      "logout"    : "index.php?section=users&do=logout",
-      "save"      : "index.php?section=calories&do=save",
-      "edit"      : "index.php?section=calories&do=edit",
-      "index"     : "index.php?section=calories&do=index",
-      "find"      : "index.php?section=calories&do=find",
-      "delete"    : "index.php?section=calories&do=delete",
-      "set_calories" : "index.php?section=users&do=setCalories",
-      "filter"    : "index.php?section=calories&do=filter"
+      "logout"    :      "index.php/users/logout",
+      "save"      :      "index.php/calories/save",
+      "edit"      :      "index.php/calories/edit",
+      "index"     :      "index.php/calories/index",
+      "find"      :      "index.php/calories/find",
+      "delete"    :      "index.php/calories/delete",
+      "set_calories" :   "index.php/users/setCalories",
+      "filter"    :      "index.php/calories/filter"
 
  };
 

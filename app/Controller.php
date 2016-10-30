@@ -3,8 +3,10 @@ namespace Bretuobay\App;
 
 class Controller{
 
-
-
+    protected $model;
+    protected $view;
+    protected $error;
+    protected $message;
 
     /**
      * @param $name

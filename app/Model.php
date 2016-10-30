@@ -10,6 +10,9 @@ class Model{
     private static  $dbh=NULL;
     public $json_err;
     public $json_success;
+    protected $db;
+    public $config;
+    private $errors = [];
 
 
     public function __construct()
