@@ -19,6 +19,8 @@ define('CONTROLLERS','controllers');
 
 define('MODELS','models');
 
+define('VIEWS','views');
+
 define('HELPERS','helpers');
 
 define('DS',DIRECTORY_SEPARATOR);

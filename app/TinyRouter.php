@@ -13,9 +13,10 @@ class TinyRouter {
      *
      * @return string
      */
-    public static function getUri()
+    public static function getUriParamsString()
     {
 
+           // var_dump($_SERVER);
 
         if (!isset($_SERVER['PATH_INFO']) || $_SERVER['PATH_INFO'] == "") {
 
@@ -35,34 +36,11 @@ class TinyRouter {
     public static function run()
     {
 
-        $route = explode('/',self::getUri());
+        $route = explode('/',self::getUriParamsString());
 
         $class_contrl = $route[1];
 
-        switch (count($route)) {
-            case 1:
-                $class = $class_contrl;
-                $method = 'index';
-                $args = null;
-                break;
-            case 2:
-                $class = $class_contrl;
-                $method = $route[2];
-                $args = null;
-                break;
-            case 3:
-            case 4:
-            case 5:
-                $class = $class_contrl;
-                $method = $route[2];
-                unset($class_contrl);
-                unset($route[1]);
-                $args = array_values($route);
-                break;
-            default:
-                exit('Unknown route');
-                break;
-        }
+        list($class, $method, $args) = self::forgeRequestParams($route, $class_contrl);
 
         $fullControllerName = ucfirst($class).'Controller';
 
@@ -74,21 +52,7 @@ class TinyRouter {
 
         $Controller = new $fullControllerName();
 
-        if ($args) {
-            switch (count($args)) {
-                case 1:
-                    $Controller->$method($args[0]);
-                    break;
-                case 2:
-                    $Controller->$method($args[0], $args[1]);
-                    break;
-                case 3:
-                    $Controller->$method($args[0], $args[1], $args[2]);
-                    break;
-            }
-        } else {
-            $Controller->$method();
-        }
+        self::callControllerWithParams($args, $method, $Controller);
     }
 
     /**
@@ -119,6 +83,64 @@ class TinyRouter {
         $method_arr = array_map('ucfirst', $method_arr);
 
         return $method = $first.implode('', $method_arr);
+    }
+
+    /**
+     * @param $route
+     * @param $class_contrl
+     * @return array
+     */
+    private static function forgeRequestParams($route, $class_contrl)
+    {
+        switch (count($route)) {
+            case 1:
+                $class = $class_contrl;
+                $method = $route[2];
+                $args = null;
+                break;
+            case 2:
+                $class = $class_contrl;
+                $method = $route[2];
+                $args = null;
+                break;
+            case 3:
+            case 4:
+            case 5:
+                $class = $class_contrl;
+                $method = $route[2];
+                unset($class_contrl);
+                unset($route[1]);
+                $args = array_values($route);
+                break;
+            default:
+                exit('Unknown route');
+                break;
+        }
+        return array($class, $method, $args);
+    }
+
+    /**
+     * @param $args
+     * @param $method
+     * @param $Controller
+     */
+    private static function callControllerWithParams($args, $method, $Controller)
+    {
+        if ($args) {
+            switch (count($args)) {
+                case 1:
+                    $Controller->$method($args[0]);
+                    break;
+                case 2:
+                    $Controller->$method($args[0], $args[1]);
+                    break;
+                case 3:
+                    $Controller->$method($args[0], $args[1], $args[2]);
+                    break;
+            }
+        } else {
+            $Controller->$method();
+        }
     }
 
 
