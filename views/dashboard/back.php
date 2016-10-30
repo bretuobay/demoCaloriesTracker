@@ -6,19 +6,16 @@
 
         <div class="navbar-header pull-right">
 
-
             <ul class="nav navbar-nav">
                 <li>
                     <a class="navbar-right" href="#">
-                        <?php
+                    <?php
                     session_start();
                     echo "Welcome : ". $_SESSION['curr_user'];
                     ?>
                     </a>
                 </li>
-            </ul>";
-
-
+            </ul>
             <ul class="nav navbar-nav">
                 <li><a class="navbar-right" id="logout_link" href="#logout">
                     Logout
