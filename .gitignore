@@ -1,6 +1,4 @@
 # Created by Festus
 .idea
-.htaccess
-tests
 vendor
 composer.lock
